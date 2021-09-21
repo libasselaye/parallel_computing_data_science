@@ -1,0 +1,58 @@
+---
+title: "TP2"
+author: "Mame Libasse Mboup"
+date: "21/09/2021"
+output: pdf_document
+---
+
+### EXERCICE 1 ####
+```{r}
+joe=function(x,k){
+   n=length(x)
+   r=NULL
+   for(i in 1:(n-k)) {
+       if(all(x[i:i+k-1] == 1)) 
+    r<-c(r,i)
+   }
+   return (r)
+}
+
+x = c(1,0,0,1,1,0,1,1,1)
+joe(x,2)
+
+#debug(joe(x,2))
+```
+
+```{r}
+#CORRIGE JOE
+joe=function(x,k){
+   n=length(x)
+   r=NULL
+   for(i in 1:(n-k+1)) { #ICI
+       if(all(x[i:(i+k-1)] == 1)) #ICI
+         r<-c(r,i)
+   }
+   return (r)
+}
+
+x = c(1,0,0,1,1,0,1,1,1)
+joe(x,2)
+```
+
+### EXERCICE 2 : Debogage de Code ####
+
+```{r}
+f1<-function(n){
+  res<-0
+    for(i in 1:n){
+       res<-res+i
+    }
+  return (res)
+}
+x = f1(2)
+x
+
+
+
+```
+
